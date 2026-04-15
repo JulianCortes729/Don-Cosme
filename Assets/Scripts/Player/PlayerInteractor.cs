@@ -15,9 +15,10 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
 
     /// <summary>
-    /// Punto (Transform) donde se colocará el objeto cuando el jugador lo agarre.
+    /// gameObject donde se colocará el objeto cuando el jugador lo agarre.
     /// </summary>
-    [SerializeField] private Transform grabPoint;
+    [SerializeField] private GameObject grabPointObject;
+    public Transform GrabPoint => grabPointObject.transform;
 
     /// <summary>
     /// Distancia máxima (en unidades) a la que el jugador puede interactuar con objetos.
@@ -30,45 +31,58 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer;
 
     /// <summary>
-    /// Referencia al objeto interactuable actualmente agarrado (si lo hay).
+    /// Referencia al GameObject actualmente agarrado por el jugador. Null si no hay ninguno.
+    /// Se guarda solo si el objeto implementa <see cref="IDroppable"/>, lo que permite soltarlo.
     /// </summary>
-    private IInteractable currentInteractable;
+    private GameObject currentObjectGrabbable;
 
-    /// <summary>
-    /// Lógica que se ejecuta cada frame.
-    /// - Detecta la pulsación de la tecla de interacción (E).
-    /// - Si no hay un objeto agarrado, realiza un raycast desde la cámara para intentar
-    ///   detectar un <see cref="IInteractable"/> y, en caso de encontrarlo, llama a
-    ///   <see cref="IInteractable.Interact"/> pasando el <see cref="grabPoint"/>.
-    /// - Si ya hay un objeto agarrado, llama a <see cref="IInteractable.Drop"/> y
-    ///   libera la referencia.
-    /// </summary>
-    private void Update()
+    private void OnEnable()
     {
+        // Nos suscribimos al evento centralizado de entrada para manejar interacciones.
+        InputManager.OnInteractPressed += GrabObject;
+    }
+    private void OnDisable()
+    {
+        // Nos desuscribimos para evitar llamadas fuera de vida del objeto.
+        InputManager.OnInteractPressed -= GrabObject;
+    }
 
-        if (Input.GetKeyDown(KeyCode.E))
+    private void GrabObject()
+    {
+        // Si no estamos en estado Playing, no procesamos interacciones.
+        if (GameManager.CurrentState != GameState.Playing) return;
+
+        if (currentObjectGrabbable == null)
         {
-            if (currentInteractable == null)
+            // Intentar detectar un objeto interactuable con un raycast desde la cámara.
+            RaycastHit hit;
+            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, interactDistance, interactableLayer))
             {
-                // Intentar detectar un objeto interactuable con un raycast desde la cámara.
-                RaycastHit hit;
-                if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, interactDistance, interactableLayer))
+                // Usamos TryGetComponent para comprobar si el collider tiene IInteractable.
+                if (hit.collider.TryGetComponent<IInteractable>(out IInteractable interactable))
                 {
-                    // Usamos TryGetComponent para comprobar si el collider tiene IInteractable.
-                    if (hit.collider.TryGetComponent<IInteractable>(out IInteractable interactable))
+                    // Pasamos el GameObject del grab point para que el objeto sepa
+                    // dónde debe posicionarse mientras esté agarrado.
+                    interactable.Interact(grabPointObject);
+
+                    // Si además implementa IDroppable, guardamos la referencia para poder soltarlo.
+                    if (hit.collider.TryGetComponent<IDroppable>(out _))
                     {
-                        currentInteractable = interactable;
-                        interactable.Interact(grabPoint);
+                        currentObjectGrabbable = hit.collider.gameObject;
                     }
                 }
             }
-            else
+        }
+        else
+        {
+            // Si ya tenemos un objeto agarrado, intentamos soltarlo mediante IDroppable.
+            if (currentObjectGrabbable.TryGetComponent<IDroppable>(out IDroppable droppable))
             {
-                // Si ya había un objeto agarrado, lo soltamos.
-                currentInteractable.Drop();
-                currentInteractable = null;
+                droppable.Drop();
+                currentObjectGrabbable = null;
             }
         }
     }
-
+        
+   
 }

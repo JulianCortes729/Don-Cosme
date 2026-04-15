@@ -14,11 +14,7 @@ public interface IInteractable
     /// posición/transform donde el objeto debe colocarse mientras esté agarrado.
     /// </summary>
     /// <param name="grabPoint">Transform objetivo al que el objeto debe seguir mientras está agarrado.</param>
-    void Interact(Transform grabPoint);
+    void Interact(GameObject grabPoint);
 
-    /// <summary>
-    /// Llamado cuando el objeto debe ser soltado por el jugador. El objeto
-    /// debe restaurar su comportamiento físico normal (por ejemplo, reactivar la gravedad).
-    /// </summary>
-    void Drop();
+    
 }

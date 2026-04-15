@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Day1_Intro
+  m_EditorClassIdentifier: 
+  nodes:
+  - dialogueText: Ya es de dia. Deberia levantarme, en cualquier momento llega el
+      pedido.
+    sfx: {fileID: 0}
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+  - dialogueText: Si no lo apago va a seguir sonando.
+    sfx: {fileID: 0}
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+  - dialogueText: "Llego el cami\xF3n."
+    sfx: {fileID: 0}
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+  - dialogueText: Bueno, ya esta el pedido. Hora de ordenar.
+    sfx: {fileID: 0}
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}

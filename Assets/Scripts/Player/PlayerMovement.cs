@@ -5,9 +5,18 @@ using UnityEngine;
 /// <summary>
 /// Controla el movimiento del jugador usando un <see cref="CharacterController"/>.
 /// Gestiona el movimiento horizontal relativo a la orientación del jugador y aplica
-/// una gravedad simple para el movimiento vertical.
+/// una gravedad simple para el movimiento vertical. 
 /// </summary>
-[RequireComponent(typeof(CharacterController))] // Fuerza a Unity a añadir el componente si no existe
+/// <remarks>
+/// Implementación basada en un modelo simplificado de física:
+/// - El movimiento horizontal se calcula en el espacio local del jugador y se aplica
+///   mediante <see cref="CharacterController.Move"/> (por tanto, no usa fuerzas físicas). 
+/// - La gravedad se integra explícitamente en el valor <see cref="velocityVertical"/>
+///   y se aplica como desplazamiento por frame; esto es suficiente para la mayoría de
+///   los controles en primera persona pero no sustituye una simulación física completa.
+/// - Todas las velocidades están en unidades de Unity (generalmente metros) por segundo.
+/// </remarks>
+[RequireComponent(typeof(CharacterController))] // Fuerza a Unity a añadir el componente si no existe 
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -38,6 +47,19 @@ public class PlayerMovement : MonoBehaviour
 
 
     /// <summary>
+    /// Inicialización temprana del componente.
+    /// Verifica que la referencia al <see cref="CharacterController"/> esté asignada;
+    /// si no lo está, intenta obtenerla del mismo GameObject para evitar errores en tiempo de ejecución.
+    /// </summary>
+    private void Awake()
+    {
+        if (controller == null)
+        {
+            controller = GetComponent<CharacterController>();
+        }
+    }
+
+    /// <summary>
     /// Lógica por frame que realiza lo siguiente:
     /// 1) Lee el input horizontal y vertical (ejes "Horizontal" y "Vertical").
     /// 2) Construye un vector de movimiento en el espacio local del jugador
@@ -53,7 +75,8 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        if (GameManager.CurrentState != GameState.Playing) return;
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -73,10 +96,10 @@ public class PlayerMovement : MonoBehaviour
         velocityVertical += gravity * Time.deltaTime;
 
         // Convertimos la velocidad vertical actual a desplazamiento para este frame.
-        Vector3 movementVertival = new Vector3(0, velocityVertical, 0) * Time.deltaTime;
+        Vector3 movementVertical = new Vector3(0, velocityVertical, 0) * Time.deltaTime;
 
         // Aplicamos el movimiento combinado al CharacterController.
-        controller.Move(clampedInput + movementVertival);
+        controller.Move(clampedInput + movementVertical);
 
     }
 }

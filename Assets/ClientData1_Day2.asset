@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad283d9f7ac89b46a410491ff6cde1b, type: 3}
+  m_Name: ClientData1_Day2
+  m_EditorClassIdentifier: 
+  clientPrefab: {fileID: 8757932013048412116, guid: 40384491686e31945a6224475aee528b,
+    type: 3}
+  dialogueSequence: {fileID: 11400000, guid: 80f01e08b7608d545baa13f9d53927ea, type: 2}
+  requestedProducts: 0600000006000000
+  rewardAmount: 10

@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Day1
   m_EditorClassIdentifier: 
   introSequence: {fileID: 11400000, guid: b6e3cdd2dbfcb6f4e8d6a8d0cef8f33e, type: 2}
-  clientSequences:
-  - {fileID: 11400000, guid: 98aeeefc34e28d247a498292f7a27d41, type: 2}
+  deliveryPrefabs:
+  - {fileID: 6283465460638120573, guid: a78afbdb5fde5a948adb38b40b898a95, type: 3}
+  - {fileID: 6283465460638120573, guid: a78afbdb5fde5a948adb38b40b898a95, type: 3}
+  - {fileID: 6283465460638120573, guid: a78afbdb5fde5a948adb38b40b898a95, type: 3}
+  clients:
+  - {fileID: 11400000, guid: be579180f1bd2c0478baf38e97546e1a, type: 2}

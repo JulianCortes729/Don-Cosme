@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (GameManager.CurrentState != GameState.Playing) return;
+        if (GameManager.CurrentState == GameState.Cinematic) return;
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");

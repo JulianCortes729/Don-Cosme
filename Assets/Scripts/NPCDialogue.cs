@@ -4,53 +4,55 @@ using UnityEngine;
 /// <summary>
 /// Componente responsable de exponer las secuencias de diálogo de un NPC.
 /// <para>
-/// - La secuencia se inyecta desde un sistema externo (por ejemplo, <c>GameManager</c>)
-///   mediante <see cref="SetSequence"/>.
-/// - Cuando el jugador interactúa con el NPC, este componente dispara
-///   el evento <see cref="OnDialogueInitiated"/> con la secuencia actualmente asignada.
+/// - La secuencia se inyecta desde un sistema externo mediante <see cref="SetSequence"/>.
+/// - El diálogo puede iniciarse de dos formas:
+///   1. Automáticamente, cuando el sistema lo solicite via <see cref="TriggerDialogue"/>.
+///   2. Manualmente, cuando el jugador interactúa con el NPC via <see cref="Interact"/>.
+/// - Un flag interno garantiza que la secuencia solo se dispara UNA vez.
 /// </para>
 /// </summary>
 public class NPCDialogue : MonoBehaviour, IInteractable
 {
-    /// <summary>
-    /// Secuencia de diálogo actualmente asociada a este NPC. Puede ser null si no hay diálogo.
-    /// </summary>
-    // SOLID: Ahora es privada; un sistema externo (GameManager) se encarga de inyectar los datos.
-    private DialogueSequence currentSequence;
+    private DialogueSequence _currentSequence;
 
-    /// <summary>
-    /// Evento lanzado cuando el NPC inicia una conversación. Proporciona la
-    /// <see cref="DialogueSequence"/> que debe reproducirse.
-    /// </summary>
+    // 🛡️ Guardia de disparo único: evita que Interact() o TriggerDialogue()
+    //    reinicien la secuencia si el diálogo ya está en curso.
+    private bool _hasTriggered = false;
+
     public static event Action<DialogueSequence> OnDialogueInitiated;
 
     /// <summary>
-    /// Método público para inyectar una nueva secuencia de diálogo al NPC.
+    /// Inyecta una nueva secuencia y resetea el flag de disparo.
+    /// Debe llamarse antes de que el cliente llegue a la ventanilla.
     /// </summary>
-    /// <param name="newSequence">Secuencia que el NPC debe exponer cuando sea interactuado.</param>
     public void SetSequence(DialogueSequence newSequence)
     {
-        currentSequence = newSequence;
+        _currentSequence = newSequence;
+        _hasTriggered = false; // 📌 GDD: cada cliente nuevo tiene su propio diálogo fresco
     }
 
     /// <summary>
-    /// Implementación del contrato <see cref="IInteractable"/>.
-    /// Cuando el jugador interactúa con este NPC se invoca este método. El
-    /// parámetro <paramref name="interactor"/> se proporciona por compatibilidad
-    /// con el sistema de interacción, pero en este componente no es necesario
-    /// para iniciar la conversación.
+    /// Dispara el diálogo programáticamente (ej: cuando el cliente llega a la ventanilla).
+    /// Es idempotente: llamarlo varias veces no reinicia el diálogo.
     /// </summary>
-    /// <param name="interactor">GameObject del punto de interacción (no usado aquí).</param>
+    public void TriggerDialogue()
+    {
+        if (_hasTriggered || _currentSequence == null) return;
+        _hasTriggered = true;
+        OnDialogueInitiated?.Invoke(_currentSequence);
+    }
+
+    /// <summary>
+    /// Implementación de IInteractable. Reutiliza TriggerDialogue para mantener
+    /// la guardia de disparo único tanto en triggers manuales como automáticos.
+    /// </summary>
     public void Interact(GameObject interactor)
     {
-        // Solo iniciamos el diálogo si el NPC tiene una secuencia asignada.
-        if (currentSequence != null)
+        if (_currentSequence == null)
         {
-            OnDialogueInitiated?.Invoke(currentSequence);
+            Debug.Log("[NPCDialogue] Este NPC no tiene nada más que decir por hoy.");
+            return;
         }
-        else
-        {
-            Debug.Log("Este NPC no tiene nada más que decir por hoy.");
-        }
+        TriggerDialogue();
     }
 }

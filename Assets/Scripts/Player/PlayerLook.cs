@@ -67,7 +67,7 @@ public class PlayerLook : MonoBehaviour
     /// </remarks>
     void Update()
     {
-        if (GameManager.CurrentState != GameState.Playing) return;
+        if (GameManager.CurrentState == GameState.Cinematic) return;
 
         float mouseX = Input.GetAxis("Mouse X") * (mouseSensitivity);
         float mouseY = Input.GetAxis("Mouse Y") * (mouseSensitivity);

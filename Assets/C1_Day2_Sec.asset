@@ -10,29 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
-  m_Name: Cliente1_Day1
+  m_Name: C1_Day2_Sec
   m_EditorClassIdentifier: 
   nodes:
-  - speakerName: Laura
-    dialogueText: "Don Cosme, \xBFc\xF3mo le va? \xBFC\xF3mo est\xE1 Sult\xE1n?"
+  - speakerName: Ricardo
+    dialogueText: "Cosme, \xBFc\xF3mo arrancamos hoy?"
     sfx: {fileID: 0}
     backgroundImage: {fileID: 0}
     isWaitingForProductNode: 0
   - speakerName: Don Cosme
-    dialogueText: "Laurita! Todo bien, y el atorrante de Sult\xE1n mejor que nosotros.
-      Ayer lo ba\xF1\xE9 y le puse el antipulgas.  \xBFy vos? "
+    dialogueText: Bien, Ricky. Vos?  Ayer la vi a Laurita, pero no tu pibe. Se ve
+      que los amigos le avisaron que no llegaron las figus.
     sfx: {fileID: 0}
     backgroundImage: {fileID: 0}
     isWaitingForProductNode: 0
-  - speakerName: Laura
-    dialogueText: "Tranqui, reci\xE9n dej\xE9 a Nico en el colegio. Agu\xE1nteme
-      que voy buscando la billetera\u2026 Ac\xE1 le dejo mientras"
-    sfx: {fileID: 0}
-    backgroundImage: {fileID: 0}
-    isWaitingForProductNode: 0
-  - speakerName: Consejo
-    dialogueText: "Laura siempre lleva un atado de puchos y caramelos. Don Cosme
-      la conoce tanto que ni siquiera tiene que ped\xEDrselo."
+  - speakerName: Ricardo
+    dialogueText: "Igual mire que yo tambi\xE9n las quiero esas, eh jaja. Deme unos
+      chicles, unas galletitas (paquete de snacks) y una lata de picadillo. Aprovechando
+      que hoy tengo franco me voy a la bicicleter\xEDa de Tom\xE1s a ver si me parcha
+      la cubierta de la moto, asi cuando me termina el laburo picamos algo con el
+      mate."
     sfx: {fileID: 0}
     backgroundImage: {fileID: 0}
     isWaitingForProductNode: 0
@@ -42,12 +39,12 @@ MonoBehaviour:
     backgroundImage: {fileID: 0}
     isWaitingForProductNode: 1
   - speakerName: Don Cosme
-    dialogueText: Todo tuyo. Si no los veo a la tarde, saludos a Nico y a Ricardo!
+    dialogueText: "Ac\xE1 ten\xE9s"
     sfx: {fileID: 0}
     backgroundImage: {fileID: 0}
     isWaitingForProductNode: 0
-  - speakerName: Laura
-    dialogueText: Gracias!!! Nos vemos!!!!
+  - speakerName: Ricardo
+    dialogueText: "Nos vemos, Don Cosme! \u2018tama\xF1ana!"
     sfx: {fileID: 0}
     backgroundImage: {fileID: 0}
     isWaitingForProductNode: 0

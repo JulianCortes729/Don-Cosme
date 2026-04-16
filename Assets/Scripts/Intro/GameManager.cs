@@ -1,174 +1,299 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Representa los posibles estados del juego gestionados por <see cref="GameManager"/>.
-/// </summary>
-public enum GameState { Cinematic, Playing }
+public enum GameState { Cinematic, Preparing, Talking, Playing }
 
-/// <summary>
-/// Coordinador central del flujo de la partida: control de estados (cinemático/jugando),
-/// gestión de las secuencias del día y orquestación del NPC de la ventana.
-/// </summary>
 public class GameManager : MonoBehaviour
 {
-    /// <summary>
-    /// Estado actual del juego. Lectura pública, asignación privada.
-    /// </summary>
+    public static GameManager Instance { get; private set; }
     public static GameState CurrentState { get; private set; }
 
     [Header("Referencias de Sistemas")]
-    /// <summary>
-    /// Referencia al <see cref="DialogueManager"/> encargado de mostrar diálogos en pantalla.
-    /// </summary>
     [SerializeField] private DialogueManager dialogueManager;
-
-    /// <summary>
-    /// Referencia al componente <see cref="NPCDialogue"/> del NPC situado en la ventana.
-    /// Se usa para inyectar secuencias de diálogo a medida que llegan clientes.
-    /// </summary>
-    [Tooltip("El script NPCDialogue del personaje estacionado en la ventana.")]
-    [SerializeField] private NPCDialogue windowNPC;
-
-    /// <summary>
-    /// Panel de interfaz que se muestra durante el modo de juego (HUD, controles, etc.).
-    /// </summary>
     [SerializeField] private GameObject panelGamePlay;
+    [SerializeField] private ShopSign shopSign; // Referencia al cartel físico
+
+    [Header("UI de Transición")]
+    [SerializeField] private GameObject dayEndPanel; // 🆕 Panel de "Día Terminado"
+
+    [Header("Puntos de Spawn")]
+    [SerializeField] private Transform deliverySpawnPoint; // 📦 Donde caen las cajas
+    [SerializeField] private float spawnScatter = 0.5f;   // Dispersión para que no choquen
+
+    [Header("Spawn de Clientes")]
+    [SerializeField] private ClientController clientControllerPrefab;
+
+    [Header("Waypoints compartidos")]
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Transform windowPoint;
+    [SerializeField] private Transform exitPoint;
 
     [Header("Gestión de Días")]
-    /// <summary>
-    /// Configuración por días (ScriptableObjects) que definen las secuencias narrativas.
-    /// </summary>
     [SerializeField] private DayConfig[] days;
-
-    /// <summary>
-    /// Índice del día actual dentro del array <see cref="days"/>.
-    /// </summary>
     [SerializeField] private int currentDayIndex = 0;
 
-    // Variables de Estado Interno
-    /// <summary>
-    /// Configuración del día actualmente activo o null si no está definida.
-    /// </summary>
-    private DayConfig currentDayConfig;
+    [Header("Economía")]
+    [SerializeField] private GameObject moneyPrefab;
+    [SerializeField] private int billsToSpawn = 3;
 
-    /// <summary>
-    /// Índice del cliente actual dentro de la configuración del día.
-    /// </summary>
-    private int currentClientIndex = 0;
+    private DayConfig _currentDayConfig;
+    private int _currentClientIndex = 0;
+    private bool _isIntroPlaying = false;
+    private ClientController _activeClient = null;
 
-    /// <summary>
-    /// Flag que indica si la intro del día se está reproduciendo actualmente.
-    /// </summary>
-    private bool isIntroPlaying = false;
+    // 🟢 POOL / ZERO ALLOC: Reutilizamos esta lista para todos los clientes en lugar de hacer 'new List'
+    private List<ProductType> _pendingProducts = new List<ProductType>(10);
 
-    /// <summary>
-    /// Inicialización: desactiva la UI de gameplay, establece el estado inicial y
-    /// lanza la secuencia de introducción del día si existe, o carga el primer cliente.
-    /// </summary>
+    // 🛡️ Estado anti-spam para la consola
+    private ObjectGrabbable _lastRejectedProduct = null;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
     private void Start()
     {
-        panelGamePlay.SetActive(false);
-        CurrentState = GameState.Cinematic;
+        // 📌 GDD: Iniciamos el primer día
+        InitDay(currentDayIndex);
+    }
 
-        if (days != null && currentDayIndex < days.Length)
+    /// <summary>
+    /// Configura y arranca un día específico desde cero.
+    /// </summary>
+    private void InitDay(int dayIndex)
+    {
+        // 1. Validar si quedan más días
+        if (days == null || dayIndex >= days.Length)
         {
-            currentDayConfig = days[currentDayIndex];
+            Debug.Log("🏁 ¡Has completado todos los días del juego!");
+            // Aquí podrías cargar una escena de créditos o menú principal
+            return;
+        }
 
-            // Lanzamos la intro si existe
-            if (currentDayConfig.introSequence != null)
-            {
-                isIntroPlaying = true;
-                dialogueManager.StartSequence(currentDayConfig.introSequence);
-            }
-            else
-            {
-                // Si no hay intro, pasamos directamente a cargar el primer cliente
-                UnlockPlayerAndLoadNextClient();
-            }
+        // 2. Limpieza de estado para el nuevo día
+        _currentClientIndex = 0; // ⚠️ CRÍTICO: Resetear puntero de clientes
+        _currentDayConfig = days[dayIndex];
+        dayEndPanel.SetActive(false);
+        panelGamePlay.SetActive(false);
+
+        // 3. Arrancar flujo narrativo
+        if (_currentDayConfig.introSequence != null)
+        {
+            _isIntroPlaying = true;
+            CurrentState = GameState.Cinematic;
+            dialogueManager.StartSequence(_currentDayConfig.introSequence);
         }
         else
         {
-            Debug.LogWarning("No hay días configurados.");
-            UnlockPlayerAndLoadNextClient();
+            _isIntroPlaying = false;
+            StartPreparationPhase();
         }
+    }
+
+    /// <summary>
+    /// Llamado cuando el último cliente del día se retira.
+    /// </summary>
+    private void EndCurrentDay()
+    {
+        Debug.Log($"✅ Día {currentDayIndex + 1} completado.");
+
+        CurrentState = GameState.Cinematic; // Bloqueamos movimiento
+        panelGamePlay.SetActive(false);
+
+        // Mostramos feedback al jugador
+        if (dayEndPanel != null)
+        {
+            dayEndPanel.SetActive(true);
+            // 💡 HINT: Aquí podrías sumar el dinero ganado hoy
+        }
+
+        // En un juego profesional, aquí esperaríamos a que el jugador 
+        // presione un botón de "Siguiente Día" en la UI.
+        // Para esta implementación, lo haremos automático tras 3 segundos.
+        Invoke(nameof(AdvanceToNextDay), 3f);
+    }
+
+    private void AdvanceToNextDay()
+    {
+        currentDayIndex++;
+        InitDay(currentDayIndex);
     }
 
     private void OnEnable()
     {
-        // Nos suscribimos para recibir notificaciones del DialogueManager y NPCs
         DialogueManager.OnDialogueEnded += HandleDialogueEnded;
-
-        // Nos suscribimos para saber cuándo el jugador inicia una charla con el NPC
         NPCDialogue.OnDialogueInitiated += HandleDialogueStarted;
+        DeliveryZone.OnProductDropped += HandleDelivery;
+        ClientController.OnClientArrived += HandleClientArrived;
+        ClientController.OnClientLeft += HandleClientLeft;
+        DialogueManager.OnWaitingForProductReached += HandleWaitingForProduct;
     }
 
     private void OnDisable()
     {
         DialogueManager.OnDialogueEnded -= HandleDialogueEnded;
         NPCDialogue.OnDialogueInitiated -= HandleDialogueStarted;
+        DeliveryZone.OnProductDropped -= HandleDelivery;
+        ClientController.OnClientArrived -= HandleClientArrived;
+        ClientController.OnClientLeft -= HandleClientLeft;
+        DialogueManager.OnWaitingForProductReached -= HandleWaitingForProduct;
     }
 
-    /// <summary>
-    /// Manejador llamado cuando se inicia una charla (por ejemplo, el jugador interactúa con el NPC).
-    /// Bloquea los controles del jugador y oculta la UI de gameplay para la cinemática.
-    /// </summary>
-    /// <param name="sequence">Secuencia que se está iniciando (no usada directamente aquí).</param>
     private void HandleDialogueStarted(DialogueSequence sequence)
     {
-        CurrentState = GameState.Cinematic;
-        panelGamePlay.SetActive(false);
+        CurrentState = GameState.Talking;
     }
 
-    /// <summary>
-    /// Manejador llamado cuando finaliza una secuencia de diálogo.
-    /// Dependiendo de si era la intro o una charla con cliente, avanza el flujo del día.
-    /// </summary>
     private void HandleDialogueEnded()
     {
-        if (isIntroPlaying)
+        if (_isIntroPlaying)
         {
-            // Terminó la intro de la mañana: liberamos al jugador y cargamos al primer cliente
-            isIntroPlaying = false;
-            UnlockPlayerAndLoadNextClient();
+            _isIntroPlaying = false;
+            StartPreparationPhase(); // 🆕 Después de la intro, a acomodar cajas!
         }
         else
         {
-            // Terminó de hablar con un cliente: liberamos al jugador y preparamos al siguiente
-            UnlockPlayerAndLoadNextClient();
+            if (_activeClient != null) _activeClient.Leave();
         }
     }
 
-    /// <summary>
-    /// Pone el juego en estado <see cref="GameState.Playing"/>, muestra la UI de gameplay
-    /// y, si quedan clientes para el día actual, configura el NPC de ventana con la
-    /// siguiente secuencia de diálogo. Si no quedan clientes, oculta el NPC.
-    /// </summary>
-    private void UnlockPlayerAndLoadNextClient()
+    private void HandleClientArrived(ClientController client)
+    {
+        Debug.Log("[GameManager] El cliente llegó a la ventana.");
+    }
+
+    private void HandleClientLeft(ClientController client)
+    {
+        _activeClient = null;
+        SpawnNextClient();
+    }
+
+    private void HandleWaitingForProduct()
     {
         CurrentState = GameState.Playing;
         panelGamePlay.SetActive(true);
 
-        if (currentDayConfig == null || currentDayConfig.clientSequences == null) return;
-
-        // Verificamos si aún quedan clientes en la fila para este día
-        if (currentClientIndex < currentDayConfig.clientSequences.Length)
+        if (_activeClient != null)
         {
-            DialogueSequence nextClientSequence = currentDayConfig.clientSequences[currentClientIndex];
+            _activeClient.SetWaitingForProduct();
 
-            // ZERO ALLOC: Inyectamos los datos en el NPC existente sin instanciar nada nuevo
-            windowNPC.SetSequence(nextClientSequence);
-            windowNPC.gameObject.SetActive(true); // Aseguramos que el NPC esté visible
+            // 📌 GDD: Vaciamos la lista vieja y copiamos el pedido del cliente actual
+            _pendingProducts.Clear();
+            if (_activeClient.Data.RequestedProducts != null)
+            {
+                _pendingProducts.AddRange(_activeClient.Data.RequestedProducts);
+            }
+        }
 
-            currentClientIndex++; // Avanzamos el índice para el próximo cliente
+        Debug.Log($"[GameManager] Esperando entrega de {_pendingProducts.Count} productos...");
+    }
+
+    private void HandleDelivery(ObjectGrabbable deliveredProduct)
+    {
+        if (CurrentState != GameState.Playing || _activeClient == null || _activeClient.State != ClientState.WaitingForProduct) return;
+
+        // Validamos si el producto entregado existe en la lista de pendientes
+        if (_pendingProducts.Contains(deliveredProduct.Type))
+        {
+            // Tachamos un producto de la lista
+            _pendingProducts.Remove(deliveredProduct.Type);
+            Debug.Log($"[GameManager] ¡Producto correcto! Faltan entregar: {_pendingProducts.Count}");
+
+            SpawnMoney(deliveredProduct.transform.position);
+            _lastRejectedProduct = null;
+
+            // 🔴 GC ALLOC: En el futuro aplicaremos Object Pooling aquí
+            Destroy(deliveredProduct.gameObject);
+
+            // Si la lista de pendientes llegó a cero, completamos la orden
+            if (_pendingProducts.Count == 0)
+            {
+                Debug.Log("[GameManager] ¡Orden completada! Despidiendo al cliente...");
+                dialogueManager.ResumeAfterDelivery();
+            }
         }
         else
         {
-            // Ya no quedan clientes. El turno terminó.
-            windowNPC.SetSequence(null);
-            windowNPC.gameObject.SetActive(false); // Ocultamos al NPC de la ventana
-            Debug.Log("¡El turno ha terminado por hoy!");
+            if (_lastRejectedProduct != deliveredProduct)
+            {
+                Debug.LogWarning($"[GameManager] RECHAZADO: El cliente no pidió {deliveredProduct.Type} o ya se lo entregaste.");
+                _lastRejectedProduct = deliveredProduct;
+            }
+        }
+    }
+
+    private void SpawnNextClient()
+    {
+        if (_currentDayConfig == null || _currentDayConfig.clients == null) return;
+
+        // Comprobar si terminamos la lista de clientes de hoy
+        if (_currentClientIndex >= _currentDayConfig.clients.Length)
+        {
+            EndCurrentDay(); // 🆕 Disparar el cambio de día
+            return;
+        }
+
+        ClientData nextData = _currentDayConfig.clients[_currentClientIndex];
+        _currentClientIndex++;
+
+        _activeClient = Instantiate(clientControllerPrefab, spawnPoint.position, spawnPoint.rotation);
+        _activeClient.InjectWaypoints(spawnPoint, windowPoint, exitPoint);
+        _activeClient.Initialize(nextData);
+    }
+
+    private void SpawnMoney(Vector3 originPosition)
+    {
+        if (moneyPrefab == null) return;
+
+        for (int i = 0; i < billsToSpawn; i++)
+        {
+            Vector3 spawnPos = originPosition + new Vector3(Random.Range(-0.1f, 0.1f), 0.3f, Random.Range(-0.1f, 0.1f));
+            GameObject bill = Instantiate(moneyPrefab, spawnPos, Quaternion.Euler(0, Random.Range(0, 360), 0));
+
+            if (bill.TryGetComponent<Rigidbody>(out Rigidbody rb))
+            {
+                rb.AddForce(Vector3.up * Random.Range(0f, 0.3f), ForceMode.Impulse);
+                rb.AddTorque(Random.insideUnitSphere * Random.Range(0f, 0.3f), ForceMode.Impulse);
+            }
+        }
+    }
+
+
+    private void StartPreparationPhase()
+    {
+        CurrentState = GameState.Preparing;
+        panelGamePlay.SetActive(true); // El jugador ya puede moverse
+        if (shopSign) shopSign.ResetSign();
+
+        SpawnDailyDelivery();
+    }
+
+    public void StartSellingPhase()
+    {
+        CurrentState = GameState.Playing;
+        SpawnNextClient();
+    }
+
+    private void SpawnDailyDelivery()
+    {
+        if (_currentDayConfig.deliveryPrefabs == null || deliverySpawnPoint == null) return;
+
+        Debug.Log($"📦 Spawning {_currentDayConfig.deliveryPrefabs.Length} cajas de mercadería...");
+
+        foreach (GameObject prefab in _currentDayConfig.deliveryPrefabs)
+        {
+            // 🟡 PERF: Spawning físico. Usamos un pequeño random offset para evitar el "Physics Pop"
+            // (cuando dos objetos spawnean en el mismo sitio y salen disparados)
+            Vector3 randomOffset = new Vector3(
+                Random.Range(-spawnScatter, spawnScatter),
+                0,
+                Random.Range(-spawnScatter, spawnScatter)
+            );
+
+            // 🔴 GC ALLOC: Instanciación de mercadería
+            Instantiate(prefab, deliverySpawnPoint.position + randomOffset, Quaternion.identity);
         }
     }
 }

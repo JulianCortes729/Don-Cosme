@@ -40,7 +40,12 @@ public class ObjectGrabbable : MonoBehaviour, IInteractable, IDroppable
     [Tooltip("Velocidad a la que el objeto se alinea con el punto de agarre (mayor = más rápido).")]
     private float followSpeed = 10f;
 
+    [Header("Datos del Producto")]
+    [SerializeField] private ProductType productType;
+    public ProductType Type => productType;
 
+    // Propiedad pública para saber si el jugador lo tiene en la mano actualmente
+    public bool IsGrabbed => currentGrabPoint != null;
 
     /// <summary>
     /// Se ejecuta al inicializar el componente. Obtiene referencias necesarias

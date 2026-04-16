@@ -3,6 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
+/// <summary>
+/// Lista cerrada de todos los productos disponibles en el juego.
+/// Tipo por valor (Zero-Allocation).
+/// </summary>
+public enum ProductType
+{
+    Ninguno,
+    Alfajor,
+    Papitas,
+    Gaseosa,
+    Galletitas,
+    Cigarrillos,
+    Caramelos,
+    Chicles,
+    Bizcochos
+}
+
 // 1. LA CAJA PEQUEÑA (Un cuadro de tu storyboard)
 [System.Serializable]
 /// <summary>
@@ -11,6 +29,9 @@ using UnityEngine;
 /// </summary>
 public struct DialogueNode
 {
+
+    [Tooltip("Nombre del personaje que habla. Ej: 'Laura', 'Don Cosme', '?'")]
+    public string speakerName;
     /// <summary>
     /// Texto que se mostrará en este nodo de diálogo.
     /// </summary>
@@ -26,6 +47,9 @@ public struct DialogueNode
     /// Imagen de fondo opcional que se mostrará mientras este nodo está activo.
     /// </summary>
     public Sprite backgroundImage;
+
+    [Tooltip("Si está activo, el diálogo se pausa aquí hasta que el jugador entregue el pedido.")]
+    public bool isWaitingForProductNode; // 🆕 Nodo marcador de entrega
 }
 
 
@@ -42,4 +66,5 @@ public class DialogueSequence : ScriptableObject
     /// El orden en el array determina el orden de reproducción.
     /// </summary>
     public DialogueNode[] nodes; // Una lista o arreglo de las cajas pequeñas
+
 }

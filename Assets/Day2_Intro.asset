@@ -10,28 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
-  m_Name: Day1_Intro
+  m_Name: Day2_Intro
   m_EditorClassIdentifier: 
   nodes:
-  - speakerName: '?'
-    dialogueText: "Uff, \xBFya es la hora?. Tengo que levantarme, en cualquier momento
-      llega Quique con el cami\xF3n, y hoy le promet\xED recibirlo con unos mates."
+  - speakerName: Don Cosme
+    dialogueText: ...
     sfx: {fileID: 0}
     backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
     isWaitingForProductNode: 0
-  - speakerName: '?'
-    dialogueText: "Si no lo apago va a seguir sonando, y se me va a pasar la hora.
-      \xA1Arriba!"
+  - speakerName: Don Cosme
+    dialogueText: ...Cinco minutos mas.
     sfx: {fileID: 0}
     backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
     isWaitingForProductNode: 0
-  - speakerName: '?'
-    dialogueText: "Lleg\xF3 el cami\xF3n"
+  - speakerName: Don Cosme
+    dialogueText: Ahora si, vamos que en un rato llega el pedido.
     sfx: {fileID: 0}
     backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
     isWaitingForProductNode: 0
-  - speakerName: '?'
-    dialogueText: "Bueno, ya est\xE1 el pedido. Hora de ordenar!"
+  - speakerName: Don Cosme
+    dialogueText: Ya voy! Estaba terminando de calentar el agua
+    sfx: {fileID: 0}
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+    isWaitingForProductNode: 0
+  - speakerName: Don Cosme
+    dialogueText: A ordenar no mas!
     sfx: {fileID: 0}
     backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
     isWaitingForProductNode: 0

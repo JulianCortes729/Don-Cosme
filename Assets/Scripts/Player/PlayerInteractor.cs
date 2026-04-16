@@ -50,7 +50,7 @@ public class PlayerInteractor : MonoBehaviour
     private void GrabObject()
     {
         // Si no estamos en estado Playing, no procesamos interacciones.
-        if (GameManager.CurrentState != GameState.Playing) return;
+        if (GameManager.CurrentState == GameState.Cinematic) return;
 
         if (currentObjectGrabbable == null)
         {

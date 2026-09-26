@@ -25,6 +25,9 @@ public class DayConfig : ScriptableObject
     [Tooltip("El monólogo o diálogo automático que se reproduce al despertar en este día.")]
     public DialogueSequence introSequence;
 
+    [Tooltip("Cinemática que se reproduce DESPUÉS de que el último cliente se va. Opcional.")]
+    public DialogueSequence outroSequence; // 📌 GDD: Cumpleaños de Don Cosme en Día 3
+
 
     [Header("Reparto (Fase de Preparación)")]
     [Tooltip("Los prefabs de los productos/cajas que aparecerán en el suelo hoy.")]
@@ -39,5 +42,10 @@ public class DayConfig : ScriptableObject
     /// vacío si no se esperan clientes ese día.
     /// </remarks>
     [Tooltip("Lista ordenada de clientes que llegarán hoy.")]
-    public ClientData[] clients; 
+    public ClientData[] clients;
+
+
+    [Header("Audio")]
+    [Tooltip("Música que suena durante el gameplay de este día. Si es null, se mantiene la del día anterior.")]
+    public AudioClip gameplayMusic;
 }

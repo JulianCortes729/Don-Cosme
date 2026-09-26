@@ -1,70 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-
-/// <summary>
-/// Lista cerrada de todos los productos disponibles en el juego.
-/// Tipo por valor (Zero-Allocation).
-/// </summary>
 public enum ProductType
 {
     Ninguno,
-    Alfajor,
-    Papitas,
-    Gaseosa,
-    Galletitas,
-    Cigarrillos,
-    Caramelos,
-    Chicles,
-    Bizcochos
+    Alfajor, Caramelos, Chicles, Galletitas, Obleas, Chocolate,
+    Agua, Gaseosa, Jugo, Cerveza, Vino,
+    Papitas, Bizcochos, Harina, Aceite, DulceDeLeche,
+    Atun, Picadillo, PureDeTomate, Duraznos, Yerba,
+    Cigarrillos, Velitas, Nachos
 }
 
-// 1. LA CAJA PEQUEÑA (Un cuadro de tu storyboard)
 [System.Serializable]
-/// <summary>
-/// Representa un único "nodo" o cuadro de diálogo dentro de una secuencia.
-/// Contiene el texto a mostrar, un SFX opcional y una imagen de fondo opcional.
-/// </summary>
 public struct DialogueNode
 {
-
-    [Tooltip("Nombre del personaje que habla. Ej: 'Laura', 'Don Cosme', '?'")]
+    [Tooltip("Nombre del personaje que habla.")]
     public string speakerName;
-    /// <summary>
-    /// Texto que se mostrará en este nodo de diálogo.
-    /// </summary>
+
     [TextArea(3, 5)]
-    public string dialogueText; // Texto del diálogo
+    public string dialogueText;
 
-    /// <summary>
-    /// Efecto de sonido opcional que se reproducirá al mostrar este nodo.
-    /// </summary>
-    public AudioClip sfx; // Audio del diálogo
+    [Tooltip("SFX de ambiente que suena al mostrar este nodo.")]
+    public AudioClip sfx;
 
-    /// <summary>
-    /// Imagen de fondo opcional que se mostrará mientras este nodo está activo.
-    /// </summary>
+    // 🆕 OPCIÓN C: Si está activo, el jugador NO puede avanzar hasta que
+    // el SFX termine. Ideal para: timbre del camión, llamada de Micaela,
+    // canción de cumpleaños. Dejalo en false para efectos prescindibles.
+    [Tooltip("Si está activo, el jugador no puede pasar al siguiente nodo hasta que el SFX termine.")]
+    public bool blockAdvanceUntilSfxEnd;
+
+    [Tooltip("Imagen de fondo opcional para este nodo.")]
     public Sprite backgroundImage;
 
     [Tooltip("Si está activo, el diálogo se pausa aquí hasta que el jugador entregue el pedido.")]
-    public bool isWaitingForProductNode; // 🆕 Nodo marcador de entrega
+    public bool isWaitingForProductNode;
+
+    [Tooltip("Productos que el jugador debe entregar en ESTA pausa.")]
+    public ProductType[] productsToDeliver;
 }
 
-
-// 2. LA CAJA GRANDE (El Día / La Conversación entera)
-[CreateAssetMenu(fileName = "New Sequence", menuName = "Dialogue/Sequence")] // MAGIA: Esto crea un botón en el menú de Unity para fabricar este archivo
-/// <summary>
-/// ScriptableObject que agrupa una secuencia ordenada de <see cref="DialogueNode"/>.
-/// Cada elemento del array representa un cuadro del diálogo que se reproducirá en orden.
-/// </summary>
+[CreateAssetMenu(fileName = "New Sequence", menuName = "Dialogue/Sequence")]
 public class DialogueSequence : ScriptableObject
 {
-    /// <summary>
-    /// Array ordenado de nodos que componen la secuencia de diálogo.
-    /// El orden en el array determina el orden de reproducción.
-    /// </summary>
-    public DialogueNode[] nodes; // Una lista o arreglo de las cajas pequeñas
-
+    public DialogueNode[] nodes;
 }

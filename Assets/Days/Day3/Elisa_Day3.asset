@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Elisa_Day3
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: "\xBF?"
+    dialogueText: "Buen d\xEDa, Se\xF1or\r\n"
+    sfx: {fileID: 8300000, guid: 096c54729980f6f47bd44103c1384d96, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: 'Decime Cosme... Y yo a vos te conozco.
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Elisa
+    dialogueText: "\xA1Qu\xE9 memoria! Soy Elisa. Usted me ayud\xF3 el otro d\xEDa
+      cuando le pregunt\xE9 por la parada del 117. Quer\xEDa contarle que qued\xE9.
+      Usted fue mi amuleto de la buena suerte, al parecer. S\xE9 que es raro que
+      un cliente le de una golosina al kioskero, pero por favor ac\xE9ptelo.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "\xA1Nena! No hac\xEDa falta. Pero que feliz me hac\xE9s. Ojal\xE1
+      que este laburo venga lleno de m\xE1s cosas positivas.\r\n"
+    sfx: {fileID: 8300000, guid: 5ff4b1ffa9c238d48926b8770c51100e, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Elisa
+    dialogueText: 'Gracias posta, Don Cosme. O mejor dicho, mi Amuleto.
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

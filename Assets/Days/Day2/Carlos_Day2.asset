@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Carlos_Day2
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Carlos
+    dialogueText: 'Buenas, buenas. Un gaseosa, por favor don.
+
+'
+    sfx: {fileID: 8300000, guid: 669f96bf24cdb07459eb9ecaa4165d20, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: 
+    dialogueText: 
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 1
+    productsToDeliver: 08000000
+  - speakerName: Don Cosme
+    dialogueText: "Ac\xE1 ten\xE9s, pibe\r\r\n"
+    sfx: {fileID: 8300000, guid: 41d48ef1a7ff5e248b675eba5f82d0d0, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Carlos
+    dialogueText: 'Gracias, nos vemos. A seguir laburando.
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

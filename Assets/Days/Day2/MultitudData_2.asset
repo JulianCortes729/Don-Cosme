@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad283d9f7ac89b46a410491ff6cde1b, type: 3}
+  m_Name: MultitudData_2
+  m_EditorClassIdentifier: 
+  spawnDelay: 1
+  isPhoneCall: 0
+  clientPrefab: {fileID: 5863803657348147440, guid: 371563eff3a4ad64087fec7acebf191f,
+    type: 3}
+  dialogueSequence: {fileID: 11400000, guid: b2abe6b9a9399b3439e61c1c337562a6, type: 2}
+  requestedProducts: 01000000090000000c000000080000000600000015000000
+  rewardPerProduct: 10

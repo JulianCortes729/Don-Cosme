@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Multitud_Day2
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Multitud
+    dialogueText: 'Don Cosme, don Cosme! Ualfajorun jugounos snacksgaseosa unas chocoyerba
+
+
+'
+    sfx: {fileID: 8300000, guid: 46b1d5263c6eda0409d3837092174791, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "\xA1De a uno que sino es imposible!\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Malena
+    dialogueText: 'Un alfajor y un jugo
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Damian
+    dialogueText: 'unos papitas, una gaseosa
+
+'
+    sfx: {fileID: 8300000, guid: ba49f0aaa52e2574c9063ce2036b540e, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Ramiro
+    dialogueText: 'un chocolate
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Lorena
+    dialogueText: "Mam\xE1 me pidi\xF3 que le lleve una yerba\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: 
+    dialogueText: 
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 1
+    productsToDeliver: 01000000090000000c000000080000000600000015000000
+  - speakerName: Don Cosme
+    dialogueText: 'Listo. Disfruten el finde chicos!
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Multitud
+    dialogueText: "\xA1Chau Don Cosme!\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

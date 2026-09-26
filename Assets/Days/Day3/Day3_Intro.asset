@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Day3_Intro
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Don Cosme
+    dialogueText: ...
+    sfx: {fileID: 8300000, guid: 096c54729980f6f47bd44103c1384d96, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "...Bueno, son las 8:25, arranqu\xE9 antes que el despertador.
+      Se ve que s\xED estoy m\xE1s viejo\u2026  Arriba no m\xE1s. No es que vayan
+      a venir Lidia y Micaela a traerme el desayuno como pasaba antes\u2026"
+    sfx: {fileID: 8300000, guid: 54e402af127672e4fbab29d884a251f1, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 295d17eb8b807594c9c660d586f53965, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Vamos que hoy corto temprano y despu\xE9s hay siestita. Quique
+      no viene hoy  s\xE1bado, pero igual hay que acomodar la mercader\xEDa que queda.\r\n"
+    sfx: {fileID: 8300000, guid: 41d48ef1a7ff5e248b675eba5f82d0d0, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 295d17eb8b807594c9c660d586f53965, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

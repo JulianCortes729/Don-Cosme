@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: OutroDay2
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Don Cosme
+    dialogueText: "Bueno, ya se hizo de noche. A sacar a Sult\xE1n y hacer la comida
+      no m\xE1s.\r"
+    sfx: {fileID: 8300000, guid: 601a5484fde1be441bd3fd02b5a09c49, type: 3}
+    backgroundImage: {fileID: 21300000, guid: 6fbf607106a6c6541bdfb77760b26bdc, type: 3}
+    isWaitingForProductNode: 0

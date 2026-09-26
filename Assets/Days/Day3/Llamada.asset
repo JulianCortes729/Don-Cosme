@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Llamada
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Don Cosme
+    dialogueText: 'Kiosco, diga.
+
+'
+    sfx: {fileID: 8300000, guid: 41d48ef1a7ff5e248b675eba5f82d0d0, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 74e8f14389c0050459e7eab69626b9ac, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Micaela
+    dialogueText: "\xA1Feliz cumple, pap\xE1! Perd\xF3n que no te llam\xE9 antes,
+      pifi\xE9 con el cambio de horario. \xA1Lola, ven\xED a saludar al abuelo!\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 74e8f14389c0050459e7eab69626b9ac, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Lola
+    dialogueText: "\xA1Feliz cumple, abu! \xA1Testraniomucho!\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 74e8f14389c0050459e7eab69626b9ac, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don cosme
+    dialogueText: "\xA1Mis amores!  \xBFC\xF3mo est\xE1n? \xBFC\xF3mo te va en el
+      cole, Loli?\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 74e8f14389c0050459e7eab69626b9ac, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Lola
+    dialogueText: "Muy bien abue, empec\xE9 primer grado. Pero mam\xE1 a veces me
+      reta porque se me pegan las palabras de ac\xE1.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 74e8f14389c0050459e7eab69626b9ac, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Decile que no hinche. Cuando vuelvas me vas a tener que ense\xF1ar
+      esa tonadita, jaja. Te amo, hermosa.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 74e8f14389c0050459e7eab69626b9ac, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Lola
+    dialogueText: "Yo tambi\xE9n, abue. Te paso con mam\xE1.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 74e8f14389c0050459e7eab69626b9ac, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Micaela
+    dialogueText: "Bueno, papi. Parece que en septiembre vamos para all\xE1. Y si
+      todo sale bien y encontramos casa, para diciembre nos mudamos. Por ah\xED hablo
+      con Graciela as\xED Lola puede entrar al mismo cole que iba yo.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 74e8f14389c0050459e7eab69626b9ac, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Parece que siempre terminamos en el barrio\u2026 Gracias por llamar,
+      linda. Saludalo a Luciano de mi parte.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 74e8f14389c0050459e7eab69626b9ac, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: "Micaela \u2013 Lola \u2013 Luciano"
+    dialogueText: "\xA1Te queremos! Nos vemos en septiembre.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 74e8f14389c0050459e7eab69626b9ac, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Bueno, al menos alguien se acord\xF3.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 74e8f14389c0050459e7eab69626b9ac, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

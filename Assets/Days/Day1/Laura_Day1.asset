@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Laura_Day1
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Laura
+    dialogueText: "Don Cosme, \xBFc\xF3mo le va? \xBFC\xF3mo est\xE1 Sult\xE1n?"
+    sfx: {fileID: 8300000, guid: 5ff4b1ffa9c238d48926b8770c51100e, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "\xA1Laurita! Yo, regio. El atorrante de Sult\xE1n mejor que nosotros.
+      Ayer lo ba\xF1\xE9 y le puse el antipulgas.  \xBFvos?\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Laura
+    dialogueText: "Tranqui, reci\xE9n dej\xE9 a Nico en el colegio. Agu\xE1nteme
+      que voy buscando la billetera\u2026 Ac\xE1 le dejo mientras"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Consejo
+    dialogueText: "Laura siempre lleva un atado de puchos y 5 caramelos. Don Cosme
+      la conoce tanto que ni siquiera tiene que ped\xEDrselo.\nPara darle los productos,
+      tengo que soltarlos en el estante con la tecla E."
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: 
+    dialogueText: 
+    sfx: {fileID: 8300000, guid: 5b75d106c84cfa34688b42144fc750fa, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 1
+    productsToDeliver: 160000000200000002000000020000000200000002000000
+  - speakerName: Don Cosme
+    dialogueText: "Todo tuyo. Si no los veo a la tarde, \xA1Saludos a Nico y a Ricardo!"
+    sfx: {fileID: 8300000, guid: 669f96bf24cdb07459eb9ecaa4165d20, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Laura
+    dialogueText: Gracias!!! Nos vemos!!!!
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

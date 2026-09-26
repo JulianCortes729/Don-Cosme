@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Matias_Day1
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: "Mat\xEDas"
+    dialogueText: "\xA1Coosmeee! Movidito el partido ayer eh.\r\n"
+    sfx: {fileID: 8300000, guid: 41d48ef1a7ff5e248b675eba5f82d0d0, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Fue tremendo, no pude comer un bocado. Y no por los nervios. \xA1Estaba
+      tan atento a la tele, que Sult\xE1n se subi\xF3 a la mesa y me comi\xF3 la
+      mitad del pollo! Desde que falta Lidia hace estas cosas.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: "Mat\xEDas"
+    dialogueText: "Yyyy\u2026 extra\xF1an. Pero es un personaje el perro, tiene a
+      quien salir, eh? jaja. Dame un chocolatito, Cosme. Me voy temprano al club
+      a entrenar, despu\xE9s laburo a la tarde\u2026 el choco siempre me salva si
+      me baja un poco la presi\xF3n\u2026\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: 
+    dialogueText: 
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 1
+    productsToDeliver: 06000000
+  - speakerName: Matias
+    dialogueText: "\xA1Ah! Y hace rato que no te vemos por el club, eh. Ni por el
+      buffet a tomar un caf\xE9 pas\xE1s ya. Los nenes pispean busc\xE1ndote en la
+      tribuna cuando tienen partido. Y mi primita reclama porque dejaste de dar clases
+      de ajedrez.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Ah, \xBFsi?\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Matias
+    dialogueText: "Y,  falta algo sin vos y tu bandone\xF3n. El rengo le pone onda,
+      pero no es Cosme tocando Cit\xE9 Tango."
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Se me pas\xF3. Ya me voy a acomodar. Voy a volver. Y tambi\xE9n
+      voy a pasar por el taller de tu viejo, que el auto me hace renegar de lo lindo.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Matias
+    dialogueText: 'Lo tomo como una promesa, eh.
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

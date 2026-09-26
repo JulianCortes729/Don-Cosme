@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: MujerNena_Day3
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Natalia
+    dialogueText: "Buen d\xEDa Cosme\r\n"
+    sfx: {fileID: 8300000, guid: 5ff4b1ffa9c238d48926b8770c51100e, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Magali
+    dialogueText: 'Hola, Don Cosme
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "\xA1Buen d\xEDa, lindas! \xBFQu\xE9 van a llevar hoy tan temprano?\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Natalia
+    dialogueText: 'Deme una harina, un aceite, dos chocolates grandes
+
+'
+    sfx: {fileID: 8300000, guid: 669f96bf24cdb07459eb9ecaa4165d20, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: 
+    dialogueText: 
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 1
+    productsToDeliver: 0e0000000f0000000600000006000000
+  - speakerName: Don Cosme
+    dialogueText: "\xBFvas a amasar a esta hora?\r\n"
+    sfx: {fileID: 8300000, guid: 077af5048526169418cd36fdca2db188, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Natalia
+    dialogueText: "Eh\u2026 No, no. Nada que ver. Es que me qued\xE9 sin nada. Deme
+      tambi\xE9n un at\xFAn. Y una lata de duraznos y, eh\u2026 Unos caramelos.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: 
+    dialogueText: 
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 1
+    productsToDeliver: 11000000140000000200000002000000
+  - speakerName: Don Cosme
+    dialogueText: "\xA1Listo! Que tengan buen fin de semana.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Magali
+    dialogueText: "Mami, mami, y si\u2026\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Natalia
+    dialogueText: "Shhh, vamos, Magui. \xA1no molestes a Don Cosme! Nos vemos, que
+      tenga lindo d\xEDa!\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "\u2026"
+    sfx: {fileID: 8300000, guid: 41d48ef1a7ff5e248b675eba5f82d0d0, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Anda medio chinchuda la Natalia, parece\u2026. "
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: 'Chau, nos vemos
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

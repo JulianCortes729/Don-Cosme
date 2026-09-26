@@ -1,0 +1,184 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Final_Day3
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Don Cosme
+    dialogueText: "Al final estaba muy buena esta pel\xEDcula, y como la enganch\xE9
+      doblada no tengo que andar leyendo subt\xEDtulos, que cada vez los hacen m\xE1s
+      chiquitos.\r\n"
+    sfx: {fileID: 8300000, guid: 61a1a5ec4a1be6546b176bdc83f29f7e, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Voz de nena
+    dialogueText: 'Shh, no hagan ruido.
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Est\xE1n motivados los pibes hoy. Mejor, que aprovechen porque
+      despu\xE9s viene el fr\xEDo y el barrio se apaga un poco.\r\n"
+    sfx: {fileID: 8300000, guid: 47545dd685c7fbb49b9f89f378d83a5a, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Voz de Hombre
+    dialogueText: "\u2026Bueno, ya fue, mandale.\r\n"
+    sfx: {fileID: 8300000, guid: 952c6e46e3f8082468c992968ef1a956, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Pero\u2026 si no espero a nadie\r\n"
+    sfx: {fileID: 8300000, guid: 14d2c34992ab9a447b41aca52105f910, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Ah\xED voy, \xBFqui\xE9n es?\r\n"
+    sfx: {fileID: 8300000, guid: 14d2c34992ab9a447b41aca52105f910, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Laura
+    dialogueText: "Don Cosme, soy Laura. Necesitamos si nos da una mano, estoy ac\xE1
+      con Nico\u2026 y algunos m\xE1s.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Si, m\xE1s vale, nena. \xBFUna mano para qu\xE9?\r\n"
+    sfx: {fileID: 8300000, guid: 1a24aae032142574ea213381b36fa44a, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 583d42bd70bf593468c2283389802179, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: TODOS
+    dialogueText: "\xA1Una mano para festejar su cumple con toda la cuadra, Don Cosme!\r\n"
+    sfx: {fileID: 8300000, guid: e6badbb7173780945b6ca65d475c538e, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: cd4c64dc8ac7ee9428c481c436d9a574, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Natalia
+    dialogueText: "Pepe, del buffet del club nos hizo acordar. Como \xFAltimamente
+      usted no andaba tanto por ah\xED, le tuvimos que traer la fiesta a domicilio.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: cd4c64dc8ac7ee9428c481c436d9a574, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "\xA1Chicos! Est\xE1n todos locos, no hac\xEDa falta.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 291f88abfaed5ac49a8b0fe27b270cf0, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Nico
+    dialogueText: "Pero lo extra\xF1amos en el club, ya ni viene a vernos jugar Cosme!\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 498b094993e9c0e46824a958135764b8, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Magali
+    dialogueText: "Y eso que hasta el patadura de Sebi meti\xF3 un golazo la otra
+      vez\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 498b094993e9c0e46824a958135764b8, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: TODOS
+    dialogueText: 'jajajaja
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 498b094993e9c0e46824a958135764b8, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Ramiro
+    dialogueText: "Es verdad. Lo re extra\xF1amos\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 498b094993e9c0e46824a958135764b8, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Lorena
+    dialogueText: "Pap\xE1 dice que sin usted es aburrido tocar en la pe\xF1a. \xA1Y
+      la mam\xE1 de Dami\xE1n la est\xE1 re-rompiendo con la guitarra! Nos falta
+      usted.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 498b094993e9c0e46824a958135764b8, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Disculpen. Estuve con la cabeza en otro lado. Con Micaela y mi
+      nieta lejos ya era un tema. Lo de Lidia me liquid\xF3. Cre\xED que estaba solo,
+      y no me di cuenta de que toda la cuadra era mi familia.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 498b094993e9c0e46824a958135764b8, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Matias
+    dialogueText: "Te dec\xEDa t\xEDo Cosme cada vez que ca\xEDas al taller de pap\xE1\u2026
+      \xBFTe puso olvidadizo la vejez? \xA1Chanta!\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 498b094993e9c0e46824a958135764b8, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Marcela
+    dialogueText: "Bueno, basta de reclamos y disculpas. YA te pon\xE9s las zapatillas,
+      agarr\xE1s el bandone\xF3n y vamos al club, que Pepe est\xE1 prendiendo el
+      fuego en la parrilla. Y tra\xE9 a Sult\xE1n, que sino va a terminar amargado
+      como vos.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 498b094993e9c0e46824a958135764b8, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Est\xE1n todos chapita ustedes. Vamos. A nuestro club. Con la
+      gente de mi barrio.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 498b094993e9c0e46824a958135764b8, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Multitud de nenes
+    dialogueText: 'Y dale Cosme, y dale dale Cosme! Y dale dale Cosme, y dale dale
+      Coooosme
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 21300000, guid: 498b094993e9c0e46824a958135764b8, type: 3}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

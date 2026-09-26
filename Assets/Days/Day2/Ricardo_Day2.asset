@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Ricardo_Day2
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Ricardo
+    dialogueText: "Cosme, \xBFc\xF3mo arrancamos hoy?\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Bien, Ricky. \xBFVos? Ayer la vi a Laurita, pero no a tu pibe.
+      Se ve que los amigos le avisaron que no llegaron las figus.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Ricardo
+    dialogueText: "Igual mire que yo tambi\xE9n las quiero esas, eh. \xA1Me guarda
+      a mi unos paquetes antes que a los pibes! jaja. Deme unos chicles, unas galletitas,
+      unas papitas, y una lata de picadillo. Aprovechando que hoy tengo franco me
+      voy a la bicicleter\xEDa de Tom\xE1s a ver si me emparcha la cubierta de la
+      moto, y llevo algo para picar con unos mates cuando me termine el laburo. Nunca
+      le cobra a los chicos cuando inflan la bici o hacen alg\xFAn arreglo medio
+      pavo, as\xED que prefiero no caer con las manos vac\xEDas.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: 
+    dialogueText: 
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 1
+    productsToDeliver: 03000000040000000c00000012000000
+  - speakerName: Don Cosme
+    dialogueText: "Ac\xE1 ten\xE9s"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Ricardo
+    dialogueText: "\xA1Nos vemos, Don Cosme! \u2018tama\xF1ana!\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Multitud_Day1
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Multitud
+    dialogueText: "\xA1Don Cosme!, \xA1Don Cosme! Yyy????\r\n"
+    sfx: {fileID: 8300000, guid: 2021c112726eeab46bbb56c0685f07b2, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "Van a tener que esperar un poco m\xE1s\u2026 Las figuritas del
+      mundial llegan reci\xE9n la semana que viene.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Multitud
+    dialogueText: 'Noooo!!! Bueno, entonces denos dos alfajores, 4 juguitos, una
+      gaseosa, y 10 pesos en caramelos.
+
+'
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: 
+    dialogueText: 
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 1
+    productsToDeliver: 0100000001000000090000000900000009000000090000000800000002000000020000000200000002000000020000000200000002000000020000000200000002000000
+  - speakerName: Don Cosme
+    dialogueText: "Ah\xED est\xE1. De paso les tiro una buena: El distribuidor me
+      dijo que por ah\xED manda un par de \xE1lbumes de regalo. \xA1Veremos si tienen
+      suerte, pibes!\r\n\r\n"
+    sfx: {fileID: 8300000, guid: ba49f0aaa52e2574c9063ce2036b540e, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Multitud
+    dialogueText: "\xA1Y dale Cosme, y dale dale Cosme! \xA1Y dale Cosme, y dale
+      dale Coooosme!"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "\xA1Que locura la de estos pebetes! jajaja\u2026\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

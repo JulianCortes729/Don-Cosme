@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6506bc81b42b03c419d08aef3d911cf7, type: 3}
+  m_Name: Day2
+  m_EditorClassIdentifier: 
+  introSequence: {fileID: 11400000, guid: 87e3bf64a70f3ce4e82918cf1247421e, type: 2}
+  outroSequence: {fileID: 11400000, guid: 2f86bdf33cbfe0341aa46b92f775c2a6, type: 2}
+  deliveryPrefabs:
+  - {fileID: 8327971165082706112, guid: b93f7047185685d44a5a67def9104f30, type: 3}
+  - {fileID: 4634030982598631335, guid: 574fd0f69b1f499409b5c3bce68a1269, type: 3}
+  - {fileID: 8343988767123557366, guid: 992902580e6a6ac42b4bd376c1f828b4, type: 3}
+  - {fileID: 696251546798482563, guid: e1c8c152e92936d4fa7570dfdc634598, type: 3}
+  - {fileID: 2363045392379674744, guid: 1c8e9c52019f37947bf4eb13098c6eb5, type: 3}
+  - {fileID: 8059768379837010904, guid: 1693611011c14a844831deddb99e3e7e, type: 3}
+  - {fileID: 8059768379837010904, guid: 1693611011c14a844831deddb99e3e7e, type: 3}
+  - {fileID: 8059768379837010904, guid: 1693611011c14a844831deddb99e3e7e, type: 3}
+  - {fileID: 6101498474928703630, guid: b13e48f5f8751ad4f8c0ec38f3051fd6, type: 3}
+  - {fileID: 5429658503317430792, guid: 31036c36d4cf87549b32fa5902e19744, type: 3}
+  - {fileID: 1617695812886533434, guid: 97eed39336c943f4bbc55515babfb21d, type: 3}
+  - {fileID: 8343988767123557366, guid: 992902580e6a6ac42b4bd376c1f828b4, type: 3}
+  - {fileID: 2363045392379674744, guid: 1c8e9c52019f37947bf4eb13098c6eb5, type: 3}
+  - {fileID: 6765542189726126155, guid: faa219559d8f05b45bb0ccb919060bd6, type: 3}
+  - {fileID: 2504236993893410099, guid: 92a8322b8ecec0f40bc63a27f1208389, type: 3}
+  clients:
+  - {fileID: 11400000, guid: d66ccb8f9b040ae418532a40759084fa, type: 2}
+  - {fileID: 11400000, guid: a061b6e58d67a684d98fb5b40a0e0e8f, type: 2}
+  - {fileID: 11400000, guid: f3c4978c6248f6d46b5281af891577aa, type: 2}
+  - {fileID: 11400000, guid: 6261b2021814d374da9f28fa19d90d92, type: 2}
+  gameplayMusic: {fileID: 8300000, guid: adf7a03efe0abbb4184e2dbb84f39199, type: 3}

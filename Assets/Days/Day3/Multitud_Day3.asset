@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Multitud_Day3
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Multitud
+    dialogueText: "Don Cosme, don Cosme, \xA1mire que el lunes a la salida del colegio
+      queremos las figus s\xED o s\xED eh! Sino el pap\xE1 de Gast\xF3n dijo que
+      iba a buscarlas a alg\xFAn kiosco del centro.\r\n"
+    sfx: {fileID: 8300000, guid: ba49f0aaa52e2574c9063ce2036b540e, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Don Cosme
+    dialogueText: "\xBFCu\xE1ntas veces les fall\xE9, chicos?... No me contesten
+      jaja. Aguanten dos d\xEDas m\xE1s, che.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Multitud
+    dialogueText: "\xA1Grande, Don Cosme! Nos vemos el lunes.\r\n"
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d0768201423784eb7962812640f844, type: 3}
+  m_Name: Malena_Day1
+  m_EditorClassIdentifier: 
+  nodes:
+  - speakerName: Malena
+    dialogueText: "\xBFC\xF3mo le va, don Cosme? Me manda mam\xE1 para buscar lo
+      de la cena de hoy:\r\nUn paquete de harina, una lata de at\xFAn, un pur\xE9
+      de tomate y un vino. Y bueno, unos chicles para mi con el vuelto\r\n"
+    sfx: {fileID: 8300000, guid: 64dbf273bbf974b4596743296a1e70c9, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: 
+    dialogueText: 
+    sfx: {fileID: 0}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 1
+    productsToDeliver: 0e00000011000000130000000b00000003000000
+  - speakerName: Don Cosme
+    dialogueText: "Todo suyo, se\xF1orita. \xA1Cuidado con la botella! \xA1Que si
+      no llega entero tu mam\xE1 se la agarra conmigo!\r\n"
+    sfx: {fileID: 8300000, guid: 41d48ef1a7ff5e248b675eba5f82d0d0, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
+  - speakerName: Malena
+    dialogueText: "Jaja \xA1Gracias!, nos vemos ma\xF1ana!\r\n"
+    sfx: {fileID: 8300000, guid: 669f96bf24cdb07459eb9ecaa4165d20, type: 3}
+    blockAdvanceUntilSfxEnd: 0
+    backgroundImage: {fileID: 0}
+    isWaitingForProductNode: 0
+    productsToDeliver: 
